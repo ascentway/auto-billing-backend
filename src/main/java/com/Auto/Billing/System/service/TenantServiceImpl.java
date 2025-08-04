@@ -25,8 +25,12 @@ public class TenantServiceImpl implements TenantService {
         tenant.setName(tenantDto.getName());
         tenant.setEmail(tenantDto.getEmail());
         tenant.setMobileNo(tenantDto.getMobileNo());
-        tenant.setRoomNo(tenantDto.getRoomNo());
-        tenant.setMembers(tenantDto.getMembers());
+        tenant.setAddress(tenantDto.getAddress());
+        tenant.setPassword(tenantDto.getPassword());
+        tenant.setGuardianName(tenantDto.getGuardianName());
+        tenant.setGuardianMobileNo(tenantDto.getGuardianMobileNo());
+        tenant.setRent(tenantDto.getRent());
+        tenant.setMaintenanceCharge(tenantDto.getMaintenanceCharge());
 
         tenantRepository.save(tenant);
     }
@@ -43,6 +47,7 @@ public class TenantServiceImpl implements TenantService {
     @Override
     public TenantDto updateTenantDetails(TenantDto tenantDto, int tid) {
         Tenant tenant = tenantRepository.findById(tid);
+
         return null;
     }
 }

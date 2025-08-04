@@ -1,11 +1,10 @@
 package com.Auto.Billing.System.repository;
 
-import com.Auto.Billing.System.entity.Tenant;
+import com.Auto.Billing.System.entity.Flat;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-
-public interface TenantRepository extends JpaRepository<Tenant, Integer> {
-    Tenant findById(int tid);
+public interface FlatRepository extends JpaRepository<Flat, Integer> {
+    Flat findById(int flatId);
 }

@@ -7,23 +7,15 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity(name ="tenant")
+@Entity
 @Getter
 @Setter
-
-public class Tenant {
+public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long tid;
+    private int oid;
     private String name;
     private String email;
+    private long phoneNo;
     private String password;
-    private long mobileNo;
-    private String address;
-    private String guardianName;
-    private long guardianMobileNo;
-    private int rent;
-    private int maintenanceCharge;
-
-
 }

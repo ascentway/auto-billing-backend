@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface TenantService {
     void saveTenant(TenantDto tenantDto);
+
     public List<TenantDto> getTenantDetails();
 
     public TenantDto updateTenantDetails(TenantDto tenantDto, int tid);
