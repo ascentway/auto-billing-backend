@@ -1,6 +1,9 @@
 package com.Auto.Billing.System.dto;
 
+import com.Auto.Billing.System.entity.Tenant;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -17,5 +20,6 @@ public class FlatDto {
     private int floor;
     private boolean isOccupied;
     private int bid;
+    private List<Tenant> tenants;
 
 }

@@ -21,7 +21,7 @@ public class FlatController {
     @PostMapping("/add")
     public ResponseEntity<String> addFlat(@RequestBody FlatDto flatDto){
         System.out.println(flatDto.toString());
-       flatService.addFlat(flatDto);
+        flatService.addFlat(flatDto);
         return ResponseEntity.status(HttpStatus.CREATED).body("Flat Details Successfully");
     }
 
@@ -31,13 +31,13 @@ public class FlatController {
         return ResponseEntity.status(HttpStatus.FOUND).body(flatDtos);
     }
 
-    @GetMapping("/{/flatId}")
+    @GetMapping("/details/{/flatId}")
     public ResponseEntity<FlatDto> getFlatById(@PathVariable int flatId){
         FlatDto flat = flatService.getFlatById(flatId);
         return ResponseEntity.status(HttpStatus.FOUND).body(flat);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/edit/{flatId}")
     public ResponseEntity<String> updateFlat(@PathVariable int flatId, @RequestBody FlatDto flatDto){
         flatService.updateField(flatId, flatDto);
         return ResponseEntity.status(HttpStatus.OK).body("Details Updated Successfully");

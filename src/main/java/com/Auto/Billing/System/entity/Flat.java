@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GeneratorType;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +25,13 @@ public class Flat {
 
     @Column(nullable = false)
     private String flatType;
+
+    @Enumerated(EnumType.STRING)
+    private FlatStatus status;
+
+    private LocalDate maintenanceStartDate;
+    private LocalDate maintenanceEndDate;
+
 
     @Column(nullable = false)
     private int maxTenants;
