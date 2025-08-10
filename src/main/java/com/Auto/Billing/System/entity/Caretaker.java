@@ -3,7 +3,7 @@ package com.Auto.Billing.System.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity(name = "caretakers")
+@Entity(name = "caretaker")
 @Getter
 @Setter
 @NoArgsConstructor

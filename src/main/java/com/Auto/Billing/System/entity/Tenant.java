@@ -1,9 +1,6 @@
 package com.Auto.Billing.System.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,6 +21,9 @@ public class Tenant {
     private long guardianMobileNo;
     private int rent;
     private int maintenanceCharge;
+    @ManyToOne
+    @JoinColumn(name = "flatId") // Foreign key column in the Item table
+    private Flat flat;
 
 
 }

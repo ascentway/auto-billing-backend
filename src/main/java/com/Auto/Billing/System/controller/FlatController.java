@@ -3,6 +3,7 @@ package com.Auto.Billing.System.controller;
 import com.Auto.Billing.System.dto.FlatDto;
 import com.Auto.Billing.System.service.FlatService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.graphql.GraphQlProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -16,22 +17,23 @@ import java.util.List;
 @RequestMapping("/flats")
 @RequiredArgsConstructor
 public class FlatController {
-    private final FlatService flatService;
+    @Autowired
+    private FlatService flatService;
 
-    @PostMapping("/add")
+    @PostMapping("/addFlat")
     public ResponseEntity<String> addFlat(@RequestBody FlatDto flatDto){
         System.out.println(flatDto.toString());
         flatService.addFlat(flatDto);
         return ResponseEntity.status(HttpStatus.CREATED).body("Flat Details Successfully");
     }
 
-    @GetMapping("/all")
+    @GetMapping("/allFlats")
     public ResponseEntity<List<FlatDto>> getAllFlats(){
         List<FlatDto> flatDtos = flatService.getAllFlats();
         return ResponseEntity.status(HttpStatus.FOUND).body(flatDtos);
     }
 
-    @GetMapping("/details/{/flatId}")
+    @GetMapping("/details/{flatId}")
     public ResponseEntity<FlatDto> getFlatById(@PathVariable int flatId){
         FlatDto flat = flatService.getFlatById(flatId);
         return ResponseEntity.status(HttpStatus.FOUND).body(flat);
@@ -39,11 +41,11 @@ public class FlatController {
 
     @PutMapping("/edit/{flatId}")
     public ResponseEntity<String> updateFlat(@PathVariable int flatId, @RequestBody FlatDto flatDto){
-        flatService.updateField(flatId, flatDto);
+        flatService.updateFlat(flatId, flatDto);
         return ResponseEntity.status(HttpStatus.OK).body("Details Updated Successfully");
     }
 
-    @DeleteMapping("/{id")
+    @DeleteMapping("/delete/{flatId}")
     public ResponseEntity<String> deleteFlat(@PathVariable int flatId){
         flatService.deleteFlat(flatId);
         return ResponseEntity.status(HttpStatus.OK).body("Flat Details Removed Successfully");

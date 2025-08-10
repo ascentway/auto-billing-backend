@@ -22,5 +22,6 @@ public class BuildingDto {
     private int maintenanceFlats;
     private int bookedFlats;
 
+    private List<FlatDto> flatDtos;
     private List<CaretakerDto> caretakerDtos;
 }

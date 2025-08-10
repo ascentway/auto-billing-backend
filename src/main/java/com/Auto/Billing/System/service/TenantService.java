@@ -9,6 +9,9 @@ public interface TenantService {
 
     public List<TenantDto> getTenantDetails();
 
-    public TenantDto updateTenantDetails(TenantDto tenantDto, int tid);
+    public void updateTenantDetails(long tid, TenantDto tenantDto);
 
+    public void deleteTenant(long tid);
+
+    public TenantDto getTenantById(long tid);
 }

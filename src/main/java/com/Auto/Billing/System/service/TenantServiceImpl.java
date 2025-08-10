@@ -44,10 +44,42 @@ public class TenantServiceImpl implements TenantService {
         return tenantList;
     }
 
-    @Override
-    public TenantDto updateTenantDetails(TenantDto tenantDto, int tid) {
-        Tenant tenant = tenantRepository.findById(tid);
 
-        return null;
+    @Override
+    public void updateTenantDetails(long tid, TenantDto tenantDto) {
+        Tenant tenant = tenantRepository.findById(tid);
+        if (tenantDto.getMobileNo() != 0) {
+            tenant.setMobileNo(tenantDto.getMobileNo());
+        }
+        if (tenantDto.getEmail() != null && !tenantDto.getEmail().isEmpty()) {
+            tenant.setEmail(tenantDto.getEmail());
+        }
+        if (tenantDto.getPassword() != null && !tenantDto.getPassword().isEmpty()) {
+            tenant.setPassword(tenantDto.getPassword());
+        }
+        if (tenantDto.getPassword() != null && !tenantDto.getPassword().isEmpty()) {
+            tenant.setPassword(tenantDto.getPassword());
+        }
+        if (tenantDto.getMaintenanceCharge() != 0) {
+            tenant.setMaintenanceCharge(tenantDto.getMaintenanceCharge());
+        }
+        if (tenantDto.getRent() != 0) {
+            tenant.setRent(tenantDto.getRent());
+        }
+        tenantRepository.save(tenant);
+    }
+
+
+    @Override
+    public void deleteTenant(long tid) {
+        Tenant tenant = tenantRepository.findById(tid);
+        tenantRepository.delete(tenant);
+    }
+
+    @Override
+    public TenantDto getTenantById(long tid) {
+        Tenant tenant = tenantRepository.findById(tid);
+        TenantDto tenantDto = modelMapper.map(tenant, TenantDto.class);
+        return tenantDto;
     }
 }

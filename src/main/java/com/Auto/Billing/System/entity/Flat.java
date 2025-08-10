@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "flats")
+@Table(name = "flat")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -33,17 +33,18 @@ public class Flat {
     private LocalDate maintenanceEndDate;
 
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private int maxTenants;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private int floor;
 
     @Column(nullable = false)
     private boolean isOccupied = false;
 
     @ManyToOne
-    @JoinColumn(name = "bid", nullable= false)
+    @JoinColumn(name = "bid")
+//            ,nullable= false)
     private Building building;
 
     @OneToMany(mappedBy ="flat", cascade = CascadeType.ALL,orphanRemoval = true)

@@ -1,11 +1,13 @@
 package com.Auto.Billing.System.entity;
 
+import com.Auto.Billing.System.dto.OwnerDto;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name = "buildings")
+@Entity(name = "building")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -23,7 +25,11 @@ public class Building {
     private String city;
     private long pincode;
 
+    @OneToMany(mappedBy = "building", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<Flat> flats;
 
-    @OneToOne(mappedBy = "buildings", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Caretaker> caretakers;
+    @OneToOne(mappedBy = "building")
+    private Caretaker caretaker;
+
+
 }

@@ -12,7 +12,8 @@ public interface FlatService {
 
     public FlatDto getFlatById(int flatId);
 
-    public void updateField(int flatId, FlatDto flatDto);
 
-    void deleteFlat(int flatId);
+    public void deleteFlat(int flatId);
+
+    public void updateFlat(int flatId, FlatDto flatDto);
 }

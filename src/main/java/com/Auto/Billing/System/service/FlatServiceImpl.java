@@ -1,7 +1,7 @@
 package com.Auto.Billing.System.service;
 
 import com.Auto.Billing.System.dto.FlatDto;
-import com.Auto.Billing.System.dto.TenantDto;
+
 import com.Auto.Billing.System.entity.Building;
 import com.Auto.Billing.System.entity.Flat;
 import com.Auto.Billing.System.repository.BuildingRepository;
@@ -56,7 +56,7 @@ public class FlatServiceImpl implements FlatService{
     }
 
     @Override
-    public void updateField(int flatId, FlatDto flatDto) {
+    public void updateFlat(int flatId, FlatDto flatDto) {
         Flat flat = flatRepository.findById(flatId);
         if(!flat.getFlatType().equalsIgnoreCase(flatDto.getFlatType())){
             flat.setFlatType(flatDto.getFlatType());
